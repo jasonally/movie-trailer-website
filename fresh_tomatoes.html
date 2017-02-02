@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Movie Trailer Gallery</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Movie Trailer Gallery</a>
+          </div>
+        </div>
+      </div>
+        <h2>Click on a movie to watch its YouTube trailer.</h2>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="iGAHnZ555nI" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/2/29/Startrekposter.jpg" width="220" height="342">
+    <h2>Star Trek</h2>
+    <h4>2009</h4>
+    <h4>127 minutes</h4>
+    <h5>During the USS Enterprise's maiden voyage the crew                             faces a threat to the entire Federation.</h5>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EXeTwQWrcwY" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/8/8a/Dark_Knight.jpg" width="220" height="342">
+    <h2>The Dark Knight</h2>
+    <h4>2008</h4>
+    <h4>152 minutes</h4>
+    <h5>Batman takes on his toughest opponent yet: a                                   criminal who doesn't play by the normal                                   rules.</h5>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="mw2AqdB5EVA" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Fast_Five_poster.jpg" width="220" height="342">
+    <h2>Fast Five</h2>
+    <h4>2011</h4>
+    <h4>130 minutes</h4>
+    <h5>Dom Toretto and his crew must do one final job in Rio                             before gaining their freedom for good.</h5>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="yRUAzGQ3nSY" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Inside_Out_%282015_film%29_poster.jpg" width="220" height="342">
+    <h2>Inside Out</h2>
+    <h4>2015</h4>
+    <h4>94 minutes</h4>
+    <h5>The story of our feelings and what's going on inside                              our heads.</h5>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="GV_18deeAXk" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.the007dossier.com/007Dossier/james-bond-007-movie-posters/casino-royale/Casino%20Royale%20Poster%203.jpg" width="220" height="342">
+    <h2>Casino Royale</h2>
+    <h4>2006</h4>
+    <h4>144 minutes</h4>
+    <h5>A reboot of the James Bond film series that                                 establishes a new timeline and framework.</h5>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ngElkyQ6Rhs" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a2/Star_Wars_The_Force_Awakens_Theatrical_Poster.jpg" width="220" height="342">
+    <h2>Star Wars: The Force Awakens</h2>
+    <h4>2015</h4>
+    <h4>136 minutes</h4>
+    <h5>New and old characters alike team up as a threat to                             the galaxy emerges.</h5>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="_f_MlMY3X2c" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/8/8b/Superbad_Poster.png" width="220" height="342">
+    <h2>Superbad</h2>
+    <h4>2007</h4>
+    <h4>113 minutes</h4>
+    <h5>Two high school seniors hope to become part of the                            in-crowd before graduating.</h5>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="4sj1MT05lAA" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/3d/The_Lion_King_poster.jpg" width="220" height="342">
+    <h2>The Lion King</h2>
+    <h4>1994</h4>
+    <h4>88 minutes</h4>
+    <h5>A young lion's quest to take back his homeland from                             his wicked uncle.</h5>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="PbdM1db3JbY" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.tribute.ca/harrypotter/images/HP1/harry_potter_and_the_sorcerers_stone_poster5.jpg" width="220" height="342">
+    <h2>Harry Potter and the Philosopher's Stone</h2>
+    <h4>2001</h4>
+    <h4>152 minutes</h4>
+    <h5>A orphan learns he is part of a magical world he                                never dreamed existed.</h5>
+</div>
+
+    </div>
+  </body>
+</html>
