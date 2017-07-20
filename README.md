@@ -1,7 +1,7 @@
 # Project: Movie Trailer Website
 
 ### About
-This project uses a backend script to create a website with information about my favorite movies as well as the ability to watch their trailers from YouTube.
+This project uses a backend script to create a website with information about my favorite movies as well as the ability to watch their trailers from YouTube. The course material for this project comes from Udacity's [Programming Foundations with Python](https://www.udacity.com/course/programming-foundations-with-python--ud036) course.
 
 ### Directory contents
 This directory has three Python files as well as this `README.md` file:
