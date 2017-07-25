@@ -20,6 +20,8 @@ After `entertainment_center.py` is run for the first time, it will generate an `
 6. Each movie will display its movie poster, year, duration, and storyline.
 7. Click on a movie to view its trailer on YouTube.
 
+You can also view view a web version of my movie trailer website [here](https://jasonally.github.io/movie-trailer-website/).
+
 ### How to update the list of movies
 1. Open `entertainment_center.py` in a text editor.
 2. Each movie's data is stored as an instance of a class, Movie. Each instance requires the movie's title, duration in minutes, storyline, URL to a movie poster, year of release, and a URL to the movie's YouTube trailer. For instance:
